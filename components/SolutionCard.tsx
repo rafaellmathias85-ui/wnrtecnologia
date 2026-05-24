@@ -26,7 +26,7 @@ export function SolutionCard({ solution, index }: SolutionCardProps) {
       className="h-full"
     >
       <Link
-        href={`/${solution.slug}`}
+        href={solution.href || `/${solution.slug}`}
         onClick={() => trackEvent("solution_card_click", { solution: solution.slug })}
         className="group glass relative flex h-full min-h-[250px] flex-col overflow-hidden rounded-lg p-6 transition duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan"
         style={{

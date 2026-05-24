@@ -10,6 +10,7 @@ import {
 export type Solution = {
   name: string;
   slug: string;
+  href?: string;
   description: string;
   longDescription: string;
   color: string;
@@ -66,6 +67,7 @@ export const solutions: Solution[] = [
   {
     name: "WNR Mídia",
     slug: "wnrmidia",
+    href: "/wnrmidia/app/",
     description: "Divulgação em telões, padarias, totens e elevadores.",
     longDescription:
       "Gerencie conteúdos, programações e campanhas em telas digitais para redes locais e pontos de alta circulação.",

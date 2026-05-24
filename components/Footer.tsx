@@ -32,7 +32,7 @@ export function Footer() {
         <FooterColumn title="Site" items={navItems} />
         <FooterColumn
           title="Soluções"
-          items={solutions.map((solution) => ({ label: solution.name, href: `/${solution.slug}` }))}
+          items={solutions.map((solution) => ({ label: solution.name, href: solution.href || `/${solution.slug}` }))}
         />
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">Contato</h2>
