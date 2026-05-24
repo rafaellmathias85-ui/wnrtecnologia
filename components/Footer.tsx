@@ -31,7 +31,7 @@ export function Footer() {
         </div>
         <FooterColumn title="Site" items={navItems} />
         <FooterColumn
-          title="Solucoes"
+          title="Soluções"
           items={solutions.map((solution) => ({ label: solution.name, href: `/${solution.slug}` }))}
         />
         <div>

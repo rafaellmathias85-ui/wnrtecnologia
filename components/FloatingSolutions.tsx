@@ -11,7 +11,7 @@ export function FloatingSolutions() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(35,215,255,0.14),transparent_36%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Solucoes WNR"
+          eyebrow="Soluções WNR"
           title="Produtos digitais orbitando os pontos críticos do seu negócio"
           description="Um ecossistema de plataformas para finanças, marketing, segurança, mídia e operações de TI, com automação e IA no centro."
         />

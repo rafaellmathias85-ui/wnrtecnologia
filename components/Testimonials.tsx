@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 const cases = [
   {
     quote: "Automações financeiras, marketing com IA e monitoramento técnico em um roadmap único.",
-    company: "Case em estruturacao"
+    company: "Case em estruturação"
   },
   {
     quote: "Produtos digitais desenhados para reduzir tempo operacional e aumentar visibilidade gerencial.",
@@ -11,7 +11,7 @@ const cases = [
   },
   {
     quote: "Segurança, suporte e dados conectados para decisão mais rápida.",
-    company: "Operacao assistida"
+    company: "Operação assistida"
   }
 ];
 
@@ -21,7 +21,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Cases"
-          title="Historias em construcao com impacto mensuravel"
+          title="Histórias em construção com impacto mensurável"
           description="Espaço reservado para depoimentos, estudos de caso e indicadores dos projetos WNR."
         />
         <div className="grid gap-5 md:grid-cols-3">

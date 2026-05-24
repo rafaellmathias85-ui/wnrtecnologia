@@ -11,10 +11,10 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/78 backdrop-blur-xl">
       <nav
-        aria-label="Navegacao principal"
+        aria-label="Navegação principal"
         className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
       >
-        <Link href="/" className="group flex items-center gap-3" aria-label="WNR Tecnologia - inicio">
+        <Link href="/" className="group flex items-center gap-3" aria-label="WNR Tecnologia - início">
           <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-cyan/40 bg-cyan/10 font-display text-lg font-bold text-cyan shadow-glow">
             W
           </span>
