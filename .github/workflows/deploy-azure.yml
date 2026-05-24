@@ -70,6 +70,21 @@ jobs:
             SERVICE_FILE="/etc/systemd/system/wnrtecnologia.service"
             NGINX_FILE="/etc/nginx/sites-available/wnrtecnologia"
 
+            if ! command -v node >/dev/null 2>&1; then
+              if command -v apt-get >/dev/null 2>&1; then
+                curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+                sudo apt-get install -y nodejs
+              else
+                echo "Node.js nao encontrado e apt-get indisponivel."
+                exit 1
+              fi
+            fi
+
+            if ! command -v nginx >/dev/null 2>&1 && command -v apt-get >/dev/null 2>&1; then
+              sudo apt-get update
+              sudo apt-get install -y nginx
+            fi
+
             sudo mkdir -p "$APP_DIR"
             sudo tar -xzf /tmp/wnrtecnologia.tar.gz -C "$APP_DIR"
             sudo chown -R "${USER}:${USER}" "$APP_DIR"
