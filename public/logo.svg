@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80" role="img" aria-labelledby="title">
+  <title id="title">WNR Tecnologia</title>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#23D7FF"/>
+      <stop offset="1" stop-color="#8758FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="80" rx="14" fill="#050711"/>
+  <rect x="14" y="14" width="52" height="52" rx="10" fill="url(#g)" opacity="0.18" stroke="#23D7FF"/>
+  <text x="29" y="49" fill="#23D7FF" font-family="Arial, sans-serif" font-size="26" font-weight="700">W</text>
+  <text x="82" y="38" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">WNR</text>
+  <text x="82" y="58" fill="#23D7FF" font-family="Arial, sans-serif" font-size="16" font-weight="700">Tecnologia</text>
+</svg>

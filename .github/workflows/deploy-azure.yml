@@ -1,0 +1,127 @@
+name: Deploy Azure VM
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-azure-vm
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'https://wnrtecnologia.com.br' }}
+          NEXT_PUBLIC_GTM_ID: ${{ vars.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXX' }}
+          NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX' }}
+          NEXT_PUBLIC_GOOGLE_ADS_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-XXXXXXXXXX' }}
+          NEXT_PUBLIC_META_PIXEL_ID: ${{ vars.NEXT_PUBLIC_META_PIXEL_ID || '000000000000000' }}
+        run: npm run build
+
+      - name: Package standalone app
+        run: |
+          mkdir -p deploy/.next/static deploy/public
+          cp -R .next/standalone/. deploy/
+          cp -R .next/static/. deploy/.next/static/
+          cp -R public/. deploy/public/
+          tar -czf wnrtecnologia.tar.gz -C deploy .
+
+      - name: Upload package to Azure VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.AZURE_HOST }}
+          username: ${{ secrets.AZURE_USER }}
+          password: ${{ secrets.AZURE_SSH_PASSWORD }}
+          port: ${{ secrets.AZURE_SSH_PORT || 22 }}
+          source: "wnrtecnologia.tar.gz"
+          target: "/tmp"
+          overwrite: true
+
+      - name: Install and restart app
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.AZURE_HOST }}
+          username: ${{ secrets.AZURE_USER }}
+          password: ${{ secrets.AZURE_SSH_PASSWORD }}
+          port: ${{ secrets.AZURE_SSH_PORT || 22 }}
+          script: |
+            set -e
+
+            APP_DIR="/var/www/wnrtecnologia"
+            SERVICE_FILE="/etc/systemd/system/wnrtecnologia.service"
+            NGINX_FILE="/etc/nginx/sites-available/wnrtecnologia"
+
+            sudo mkdir -p "$APP_DIR"
+            sudo tar -xzf /tmp/wnrtecnologia.tar.gz -C "$APP_DIR"
+            sudo chown -R "${USER}:${USER}" "$APP_DIR"
+
+            cat > /tmp/wnrtecnologia.service <<'SERVICE'
+            [Unit]
+            Description=WNR Tecnologia Next.js
+            After=network.target
+
+            [Service]
+            Type=simple
+            WorkingDirectory=/var/www/wnrtecnologia
+            Environment=NODE_ENV=production
+            Environment=PORT=3006
+            ExecStart=/usr/bin/node /var/www/wnrtecnologia/server.js
+            Restart=always
+            RestartSec=5
+            User=adminwti
+
+            [Install]
+            WantedBy=multi-user.target
+            SERVICE
+
+            sudo mv /tmp/wnrtecnologia.service "$SERVICE_FILE"
+            sudo systemctl daemon-reload
+            sudo systemctl enable wnrtecnologia
+            sudo systemctl restart wnrtecnologia
+
+            if command -v nginx >/dev/null 2>&1; then
+              cat > /tmp/wnrtecnologia.nginx <<'NGINX'
+              server {
+                listen 80;
+                listen [::]:80;
+                server_name wnrtecnologia.com.br www.wnrtecnologia.com.br 4.228.218.45;
+
+                location / {
+                  proxy_pass http://127.0.0.1:3006;
+                  proxy_http_version 1.1;
+                  proxy_set_header Upgrade $http_upgrade;
+                  proxy_set_header Connection "upgrade";
+                  proxy_set_header Host $host;
+                  proxy_set_header X-Real-IP $remote_addr;
+                  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                  proxy_set_header X-Forwarded-Proto $scheme;
+                  proxy_cache_bypass $http_upgrade;
+                }
+              }
+              NGINX
+              sudo mv /tmp/wnrtecnologia.nginx "$NGINX_FILE"
+              sudo ln -sf "$NGINX_FILE" /etc/nginx/sites-enabled/wnrtecnologia
+              sudo nginx -t
+              sudo systemctl reload nginx
+            fi
+
+            systemctl --no-pager --full status wnrtecnologia
