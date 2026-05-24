@@ -116,8 +116,8 @@ jobs:
             if command -v nginx >/dev/null 2>&1; then
               cat > /tmp/wnrtecnologia.nginx <<'NGINX'
             server {
-              listen 80;
-              listen [::]:80;
+              listen 80 default_server;
+              listen [::]:80 default_server;
               server_name wnrtecnologia.com.br www.wnrtecnologia.com.br 4.228.218.45;
 
               location = /wnrmidia/app {
@@ -180,6 +180,7 @@ jobs:
             }
             NGINX
               sudo mv /tmp/wnrtecnologia.nginx "$NGINX_FILE"
+              sudo rm -f /etc/nginx/sites-enabled/default /etc/nginx/conf.d/default.conf
               sudo ln -sf "$NGINX_FILE" /etc/nginx/sites-enabled/wnrtecnologia
               sudo nginx -t
               sudo systemctl reload nginx
