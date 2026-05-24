@@ -56,6 +56,7 @@ export const solutions: Solution[] = [
   {
     name: "WNR Audit",
     slug: "wnraudit",
+    href: "/wnraudit/app/",
     description: "Análise de vulnerabilidades para tenants e redes corporativas.",
     longDescription:
       "Mapeie riscos, priorize correção de vulnerabilidades e fortaleça ambientes Microsoft 365, cloud e redes.",
