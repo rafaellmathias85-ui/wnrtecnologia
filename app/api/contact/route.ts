@@ -6,10 +6,10 @@ const solutionSlugs = solutions.map((solution) => solution.slug) as [string, ...
 
 const contactSchema = z.object({
   name: z.string().min(2, "Informe seu nome."),
-  email: z.string().email("Informe um email valido."),
-  phone: z.string().min(10, "Informe um telefone valido."),
+  email: z.string().email("Informe um e-mail válido."),
+  phone: z.string().min(10, "Informe um telefone válido."),
   company: z.string().min(2, "Informe sua empresa."),
-  solution: z.enum(solutionSlugs, { errorMap: () => ({ message: "Selecione uma solucao valida." }) }),
+  solution: z.enum(solutionSlugs, { errorMap: () => ({ message: "Selecione uma solução válida." }) }),
   message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres."),
   website: z.string().optional(),
   recaptchaToken: z.string().optional()
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 
     if (!parsed.success) {
       return NextResponse.json(
-        { message: parsed.error.issues[0]?.message || "Dados invalidos." },
+        { message: parsed.error.issues[0]?.message || "Dados inválidos." },
         { status: 400 }
       );
     }
@@ -42,6 +42,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ message: "Mensagem enviada com sucesso." });
   } catch {
-    return NextResponse.json({ message: "Nao foi possivel processar a mensagem." }, { status: 500 });
+    return NextResponse.json({ message: "Não foi possível processar a mensagem." }, { status: 500 });
   }
 }

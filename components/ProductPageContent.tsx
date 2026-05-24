@@ -13,7 +13,7 @@ export function ProductPageContent({ solution }: { solution: Solution }) {
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Inicio", path: "/" },
+            { name: "Início", path: "/" },
             { name: solution.name, path: `/${solution.slug}` }
           ]),
           softwareSchema({
@@ -37,7 +37,7 @@ export function ProductPageContent({ solution }: { solution: Solution }) {
           <div>
             <Link href="/#solucoes" className="inline-flex items-center gap-2 text-sm font-bold text-cyan hover:text-white">
               <ArrowLeft size={17} aria-hidden />
-              Voltar para solucoes
+              Voltar para soluções
             </Link>
             <div
               className="mt-8 flex h-16 w-16 items-center justify-center rounded-lg border"
@@ -53,7 +53,7 @@ export function ProductPageContent({ solution }: { solution: Solution }) {
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-9 text-slate-300">{solution.longDescription}</p>
             <div className="mt-9 grid max-w-2xl gap-4 sm:grid-cols-3">
-              {["Lista de espera", "Demonstracao guiada", "Roadmap modular"].map((item) => (
+              {["Lista de espera", "Demonstração guiada", "Roadmap modular"].map((item) => (
                 <div key={item} className="glass rounded-lg p-4">
                   <CheckCircle2 className="mb-3 text-cyan" size={20} aria-hidden />
                   <p className="text-sm font-bold text-white">{item}</p>

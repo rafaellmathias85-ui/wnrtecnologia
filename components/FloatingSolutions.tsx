@@ -12,8 +12,8 @@ export function FloatingSolutions() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Solucoes WNR"
-          title="Produtos digitais orbitando os pontos criticos do seu negocio"
-          description="Um ecossistema de plataformas para finanças, marketing, seguranca, midia e operacoes de TI, com automacao e IA no centro."
+          title="Produtos digitais orbitando os pontos críticos do seu negócio"
+          description="Um ecossistema de plataformas para finanças, marketing, segurança, mídia e operações de TI, com automação e IA no centro."
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {solutions.map((solution, index) => (

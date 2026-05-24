@@ -7,22 +7,22 @@ const pillars = [
   {
     icon: Rocket,
     title: "Inovacao",
-    text: "Transformamos oportunidades em produtos digitais claros, escalaveis e prontos para evoluir."
+    text: "Transformamos oportunidades em produtos digitais claros, escaláveis e prontos para evoluir."
   },
   {
     icon: BrainCircuit,
     title: "IA",
-    text: "Aplicamos inteligencia artificial onde ela reduz friccao, melhora decisoes e amplia produtividade."
+    text: "Aplicamos inteligência artificial onde ela reduz fricção, melhora decisões e amplia produtividade."
   },
   {
     icon: Workflow,
-    title: "Automacao",
+    title: "Automação",
     text: "Conectamos sistemas e rotinas para eliminar retrabalho e acelerar processos empresariais."
   },
   {
     icon: LockKeyhole,
-    title: "Seguranca",
-    text: "Desenhamos solucoes com atencao a privacidade, controle de acesso e confiabilidade operacional."
+    title: "Segurança",
+    text: "Desenhamos soluções com atenção à privacidade, controle de acesso e confiabilidade operacional."
   }
 ];
 
@@ -33,8 +33,8 @@ export function About() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Por que a WNR?"
-            title="Tecnologia aplicada com visao de negocio"
-            description="Unimos engenharia, automacao, dados e suporte para criar solucoes que nascem conectadas aos desafios reais da operacao."
+            title="Tecnologia aplicada com visão de negócio"
+            description="Unimos engenharia, automação, dados e suporte para criar soluções que nascem conectadas aos desafios reais da operação."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {pillars.map((pillar) => (
@@ -53,16 +53,16 @@ export function About() {
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-cyan">Winner Group</p>
             <h2 className="font-display text-3xl font-bold tracking-normal text-white sm:text-4xl">
-              Divisao tecnologica da Winner Tecnologia
+              Divisão tecnológica da Winner Tecnologia
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              A WNR Tecnologia integra a visao da Winner Tecnologia / WTICORP para entregar plataformas,
-              automacoes e produtos baseados em IA com foco em eficiencia, governanca e crescimento digital.
+              A WNR Tecnologia integra a visão da Winner Tecnologia / WTICORP para entregar plataformas,
+              automações e produtos baseados em IA com foco em eficiência, governança e crescimento digital.
             </p>
             <p className="mt-5 text-lg leading-8 text-slate-300">
-              Nossa missao e transformar processos complexos em experiencias simples. Nossa visao e ser uma
-              referencia nacional em produtos digitais inteligentes. Nossos valores sao parceria, seguranca,
-              transparencia, melhoria continua e compromisso com resultado.
+              Nossa missão é transformar processos complexos em experiências simples. Nossa visão é ser uma
+              referência nacional em produtos digitais inteligentes. Nossos valores são parceria, segurança,
+              transparência, melhoria contínua e compromisso com resultado.
             </p>
             <Link
               href={siteConfig.parentCompany.url}
@@ -76,7 +76,7 @@ export function About() {
           <aside className="glass rounded-lg p-7">
             <h3 className="font-display text-2xl font-bold text-white">Diferenciais</h3>
             <ul className="mt-6 space-y-4 text-slate-300">
-              {["IA aplicada a processos reais", "Automacoes sob medida", "Cultura de seguranca", "Suporte proximo e evolutivo"].map(
+              {["IA aplicada a processos reais", "Automações sob medida", "Cultura de segurança", "Suporte próximo e evolutivo"].map(
                 (item) => (
                   <li key={item} className="flex gap-3">
                     <span className="mt-2 h-2 w-2 rounded-full bg-cyan shadow-glow" aria-hidden />

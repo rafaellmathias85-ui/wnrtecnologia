@@ -1,6 +1,6 @@
 # WNR Tecnologia
 
-Site institucional da WNR Tecnologia, divisao tech da Winner Tecnologia / WTICORP, com foco em automacao empresarial, solucoes digitais e produtos baseados em IA.
+Site institucional da WNR Tecnologia, divisão tech da Winner Tecnologia / WTICORP, com foco em automação empresarial, soluções digitais e produtos baseados em IA.
 
 ## Stack
 
@@ -9,7 +9,7 @@ Site institucional da WNR Tecnologia, divisao tech da Winner Tecnologia / WTICOR
 - TailwindCSS
 - Framer Motion
 - Lucide React
-- Metadata API, sitemap automatico e JSON-LD
+- Metadata API, sitemap automático e JSON-LD
 
 ## Como rodar
 
@@ -27,7 +27,7 @@ npm run build
 npm run start
 ```
 
-O `postbuild` executa `next-sitemap` para gerar sitemap e robots em `public/`. O projeto tambem possui `app/sitemap.ts` e `app/robots.ts` para suporte nativo do App Router.
+O `postbuild` executa `next-sitemap` para gerar sitemap e robots em `public/`. O projeto também possui `app/sitemap.ts` e `app/robots.ts` para suporte nativo do App Router.
 
 ## Variaveis de ambiente
 
@@ -60,19 +60,19 @@ A rota `POST /api/contact` valida os dados no servidor, aplica honeypot anti-spa
 
 ## Deploy na Vercel
 
-1. Configure as variaveis de ambiente na Vercel.
+1. Configure as variáveis de ambiente na Vercel.
 2. Rode o deploy pelo painel ou CLI.
-3. Confirme o dominio `wnrtecnologia.com.br`.
+3. Confirme o domínio `wnrtecnologia.com.br`.
 
 ## Deploy na Azure VM via GitHub Actions
 
 O workflow `.github/workflows/deploy-azure.yml` publica automaticamente no push da branch `main`.
 
-Configure estes secrets no repositorio GitHub:
+Configure estes secrets no repositório GitHub:
 
 - `AZURE_HOST`: `4.228.218.45`
 - `AZURE_USER`: `adminwti`
 - `AZURE_SSH_PASSWORD`: senha SSH da VM
 - `AZURE_SSH_PORT`: `22`
 
-O deploy cria o app em `/var/www/wnrtecnologia`, reinicia o servico `systemd` `wnrtecnologia` e, se o Nginx estiver instalado, configura proxy HTTP para `127.0.0.1:3006`.
+O deploy cria o app em `/var/www/wnrtecnologia`, reinicia o serviço `systemd` `wnrtecnologia` e, se o Nginx estiver instalado, configura proxy HTTP para `127.0.0.1:3006`.

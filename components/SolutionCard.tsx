@@ -47,7 +47,7 @@ export function SolutionCard({ solution, index }: SolutionCardProps) {
         <h3 className="font-display text-2xl font-bold tracking-normal text-white">{solution.name}</h3>
         <p className="mt-4 flex-1 text-base leading-7 text-slate-300">{solution.description}</p>
         <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold" style={{ color: solution.color }}>
-          Ver solucao
+          Ver solução
           <ArrowUpRight className="transition group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />
         </span>
       </Link>

@@ -75,7 +75,7 @@ jobs:
                 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
                 sudo apt-get install -y nodejs
               else
-                echo "Node.js nao encontrado e apt-get indisponivel."
+                echo "Node.js não encontrado e apt-get indisponível."
                 exit 1
               fi
             fi

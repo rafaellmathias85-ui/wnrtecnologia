@@ -8,11 +8,11 @@ export function FinalCta() {
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-cyan">Contato</p>
           <h2 className="font-display text-3xl font-bold tracking-normal text-white sm:text-5xl">
-            Pronto para automatizar seu negocio?
+            Pronto para automatizar seu negócio?
           </h2>
           <p className="mt-6 text-lg leading-8 text-slate-300">
-            Fale com a WNR para avaliar oportunidades de automacao, IA, seguranca, produtos digitais ou gestao
-            operacional. O primeiro passo e entender seu processo e desenhar um caminho viavel.
+            Fale com a WNR para avaliar oportunidades de automação, IA, segurança, produtos digitais ou gestão
+            operacional. O primeiro passo é entender seu processo e desenhar um caminho viável.
           </p>
         </div>
         <ContactForm />

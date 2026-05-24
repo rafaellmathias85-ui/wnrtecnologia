@@ -23,10 +23,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = buildMetadata({
-  title: "WNR Tecnologia | Automacao e IA",
+  title: "WNR Tecnologia | Automação e IA",
   description:
-    "Solucoes de tecnologia, automacao empresarial e produtos com IA da divisao tech da Winner Tecnologia.",
-  keywords: ["WNR Tecnologia", "automacao empresarial", "inteligencia artificial", "Winner Tecnologia"]
+    "Soluções de tecnologia, automação empresarial e produtos com IA da divisão tech da Winner Tecnologia.",
+  keywords: ["WNR Tecnologia", "automação empresarial", "inteligência artificial", "Winner Tecnologia"]
 });
 
 export const viewport: Viewport = {

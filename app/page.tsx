@@ -8,17 +8,17 @@ import { Testimonials } from "@/components/Testimonials";
 import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "WNR Tecnologia | Automacao e IA",
+  title: "WNR Tecnologia | Automação e IA",
   description:
-    "Tecnologia, automacao empresarial e produtos com IA da divisao tech da Winner Tecnologia.",
+    "Tecnologia, automação empresarial e produtos com IA da divisão tech da Winner Tecnologia.",
   path: "/",
-  keywords: ["WNR Tecnologia", "automacao empresarial", "IA para empresas", "produtos digitais"]
+  keywords: ["WNR Tecnologia", "automação empresarial", "IA para empresas", "produtos digitais"]
 });
 
 export default function Home() {
   return (
     <main>
-      <JsonLd data={breadcrumbSchema([{ name: "Inicio", path: "/" }])} />
+      <JsonLd data={breadcrumbSchema([{ name: "Início", path: "/" }])} />
       <Hero />
       <FloatingSolutions />
       <About />

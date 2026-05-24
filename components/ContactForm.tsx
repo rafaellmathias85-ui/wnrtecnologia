@@ -38,15 +38,15 @@ export function ContactForm({ defaultSolution }: { defaultSolution?: string }) {
         body: JSON.stringify(payload)
       });
       const data = (await response.json()) as { message?: string };
-      if (!response.ok) throw new Error(data.message || "Erro ao enviar formulario.");
+      if (!response.ok) throw new Error(data.message || "Erro ao enviar formulário.");
       setStatus("success");
-      setMessage("Mensagem enviada com sucesso. Em breve nossa equipe entrara em contato.");
+      setMessage("Mensagem enviada com sucesso. Em breve nossa equipe entrará em contato.");
       trackEvent("contact_form_submit", { solution: payload.solution });
       form.reset();
       setPhone("");
     } catch (error) {
       setStatus("error");
-      setMessage(error instanceof Error ? error.message : "Nao foi possivel enviar. Tente novamente.");
+      setMessage(error instanceof Error ? error.message : "Não foi possível enviar. Tente novamente.");
     }
   }
 
@@ -56,7 +56,7 @@ export function ContactForm({ defaultSolution }: { defaultSolution?: string }) {
       <input type="hidden" name="recaptchaToken" value="RECAPTCHA_V3_PLACEHOLDER" />
       <div className="grid gap-4 md:grid-cols-2">
         <Field label="Nome" name="name" autoComplete="name" required />
-        <Field label="Email" name="email" type="email" autoComplete="email" required />
+        <Field label="E-mail" name="email" type="email" autoComplete="email" required />
         <label className="grid gap-2 text-sm font-semibold text-slate-200">
           Telefone
           <input
@@ -81,7 +81,7 @@ export function ContactForm({ defaultSolution }: { defaultSolution?: string }) {
           className="rounded-lg border border-white/15 bg-[#0b1021] px-4 py-3 text-white focus:border-cyan"
         >
           <option value="" disabled>
-            Selecione uma solucao
+            Selecione uma solução
           </option>
           {solutions.map((solution) => (
             <option key={solution.slug} value={solution.slug}>
@@ -98,7 +98,7 @@ export function ContactForm({ defaultSolution }: { defaultSolution?: string }) {
           minLength={10}
           rows={5}
           className="resize-y rounded-lg border border-white/15 bg-white/8 px-4 py-3 text-white placeholder:text-slate-500 focus:border-cyan"
-          placeholder="Conte rapidamente o que voce deseja automatizar ou construir."
+          placeholder="Conte rapidamente o que você deseja automatizar ou construir."
         />
       </label>
       <button

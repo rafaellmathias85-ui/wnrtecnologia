@@ -38,7 +38,7 @@ export function buildMetadata({
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `${siteConfig.name} - solucoes de tecnologia, automacao e IA`
+          alt: `${siteConfig.name} - soluções de tecnologia, automação e IA`
         }
       ]
     },

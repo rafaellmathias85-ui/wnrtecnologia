@@ -16,7 +16,7 @@ export function Footer() {
             {[
               { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com" },
               { icon: Github, label: "GitHub", href: "https://github.com" },
-              { icon: Mail, label: "Email", href: `mailto:${siteConfig.email}` }
+              { icon: Mail, label: "E-mail", href: `mailto:${siteConfig.email}` }
             ].map((item) => (
               <Link
                 key={item.label}
@@ -44,12 +44,12 @@ export function Footer() {
             CNPJ {siteConfig.cnpj}
           </address>
           <Link href="/politica-de-privacidade" className="mt-4 inline-flex text-sm text-cyan hover:text-white">
-            Politica de privacidade
+            Política de privacidade
           </Link>
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} WNR Tecnologia. Divisao da Winner Tecnologia / WTICORP.
+        © {new Date().getFullYear()} WNR Tecnologia. Divisão da Winner Tecnologia / WTICORP.
       </div>
     </footer>
   );
