@@ -131,12 +131,8 @@ jobs:
 
               location ^~ /wnraudit/app/ {
                 alias /var/www/wnraudit/app/source/artifacts/wnr-audit/dist/public/;
-                try_files $uri $uri/ /wnraudit-app-index.html;
-              }
-
-              location = /wnraudit-app-index.html {
-                internal;
-                alias /var/www/wnraudit/app/source/artifacts/wnr-audit/dist/public/index.html;
+                index index.html;
+                try_files $uri $uri/ /wnraudit/app/index.html;
               }
 
               location ^~ /wnrmidia/app/api/ {
