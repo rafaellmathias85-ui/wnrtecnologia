@@ -132,13 +132,12 @@ jobs:
               location ^~ /wnraudit/app/ {
                 alias /var/www/wnraudit/app/source/artifacts/wnr-audit/dist/public/;
                 index index.html;
-                try_files $uri $uri/ @wnraudit_app;
+                try_files $uri $uri/ /wnraudit-app-index.html;
               }
 
-              location @wnraudit_app {
+              location = /wnraudit-app-index.html {
                 internal;
-                root /var/www/wnraudit/app/source/artifacts/wnr-audit/dist/public;
-                try_files /index.html =404;
+                alias /var/www/wnraudit/app/source/artifacts/wnr-audit/dist/public/index.html;
               }
 
               location ^~ /wnrmidia/app/api/ {
