@@ -23,6 +23,10 @@ export function buildMetadata({
     title,
     description,
     keywords,
+    icons: {
+      icon: "/favicon.svg",
+      shortcut: "/favicon.svg"
+    },
     alternates: {
       canonical: url
     },
