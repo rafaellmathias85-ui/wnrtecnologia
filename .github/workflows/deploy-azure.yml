@@ -125,6 +125,20 @@ jobs:
                 return 301 /wnrmidia/app/;
               }
 
+              location = /wnraudit/app {
+                return 301 /wnraudit/app/;
+              }
+
+              location ^~ /wnraudit/app/ {
+                alias /var/www/wnraudit/app/source/artifacts/wnr-audit/dist/public/;
+                try_files $uri $uri/ /wnraudit-app-index.html;
+              }
+
+              location = /wnraudit-app-index.html {
+                internal;
+                alias /var/www/wnraudit/app/source/artifacts/wnr-audit/dist/public/index.html;
+              }
+
               location ^~ /wnrmidia/app/api/ {
                 rewrite ^/wnrmidia/app/api/(.*)$ /api/$1 break;
                 proxy_pass http://127.0.0.1:5000;
